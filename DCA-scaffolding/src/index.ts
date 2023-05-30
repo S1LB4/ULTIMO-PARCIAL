@@ -1,4 +1,6 @@
 import "./components/export"
+import { dispatch } from "./store";
+import { getRecetas } from "./store/actions";
 
 class AppContainer extends HTMLElement {
     constructor(){
@@ -6,10 +8,10 @@ class AppContainer extends HTMLElement {
         this.attachShadow({mode: "open"})
     }
 
-    connectedCallback() {
+    async connectedCallback() {
+        dispatch(await getRecetas())
         this.render()
     }
-
     render() {
         const form = this.ownerDocument.createElement('app-form');
         

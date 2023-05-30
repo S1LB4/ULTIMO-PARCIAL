@@ -1,14 +1,14 @@
 import { dispatch } from "../../store";
-import { saveProduct } from "../../store/actions";
-import { Product } from "../../types/products";
+import { saveReceta } from "../../store/actions";
+import { Receta } from "../../types/receta";
 
-const receraInp: Product = {
+const receraInp: Receta = {
     name: "",
     ingredientes: "",
     instrucciones: "",
 }
 
-class Form extends HTMLElement {
+export class Form extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: "open"})
@@ -45,7 +45,7 @@ class Form extends HTMLElement {
         btn.textContent = "GUARDAR"
         btn.addEventListener("click", async () => {
             console.log(receraInp);
-            dispatch(await savereceta(receraInp));
+            dispatch(await saveReceta(receraInp));
         });
 
         this.shadowRoot?.appendChild(receta);
@@ -58,5 +58,5 @@ class Form extends HTMLElement {
     }
 }
 
-customElements.define('app-form', Form);
+customElements.define('app-receta', Form);
 export default Form;
