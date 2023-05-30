@@ -58,5 +58,5 @@ export class Form extends HTMLElement {
     }
 }
 
-customElements.define('app-receta', Form);
+customElements.define('app-form', Form);
 export default Form;

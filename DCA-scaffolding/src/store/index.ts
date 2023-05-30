@@ -3,7 +3,7 @@ import { Actions, AppState, Observer } from "../types/store";
 import { reducer } from "./reducer";
 
 const emptyState: AppState = {
-  something: {},
+  recetas: []
 };
 
 export let appState = Storage.get<AppState>({

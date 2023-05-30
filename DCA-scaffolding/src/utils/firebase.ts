@@ -7,10 +7,10 @@ import { Receta } from "../types/receta";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const saveRecetaInDB = async (product: Receta) => {
+const saveRecetaInDB = async (receta: Receta) => {
 
     try {
-        await addDoc(collection(db, "products"), product);
+        await addDoc(collection(db, "recetas"), receta);
         return true;
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -21,11 +21,12 @@ const saveRecetaInDB = async (product: Receta) => {
 
 const getRecetaFromDB = async(): Promise<Receta[]> => {
     const resp: Receta[] = [];
+
+
     const querySnapshot = await getDocs(collection(db, "recetas"));
-    querySnapshot.forEach((doc: { id: any; data: () => Receta; }) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-  resp.push({...doc.data(),} as Receta);
-});
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    });
 return resp;
 }
 

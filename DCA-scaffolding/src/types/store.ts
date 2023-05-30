@@ -3,7 +3,8 @@ import { Receta } from "./receta";
 export type Observer = { render: () => void } & HTMLElement;
 
 export type AppState = {
-  products: Receta[];
+  recetas: any;
+  
 };
 
 export enum SomeActions {
